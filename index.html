@@ -2869,36 +2869,35 @@
     (()=>{function i(){for(let e of document.querySelectorAll("[data-framer-original-sizes]")){let t=e.getAttribute("data-framer-original-sizes");t===""?e.removeAttribute("sizes"):e.setAttribute("sizes",t),e.removeAttribute("data-framer-original-sizes")}}function a(){window.__framer_onRewriteBreakpoints=i}return a})()()
     </script>
 
-    <script>
-        function checkRoute() {
-            const path = window.location.pathname;
-            if (path === '/sobre') {
-                document.getElementById('content').innerHTML = `
-                    <h1>Sobre</h1>
-                    <p>Informações sobre o site.</p>
-                    <p><a href="/">Voltar para a página inicial</a></p>
-                `;
-            } else if (path === '/contato') {
-                document.getElementById('content').innerHTML = `
-                    <h1>Contato</h1>
-                    <p>Entre em contato conosco.</p>
-                    <p><a href="/">Voltar para a página inicial</a></p>
-                `;
-            } else {
-                show404();
-            }
-        }
-
-        function show404() {
-            document.getElementById('content').innerHTML = `
-                <h1>404 - Página Não Encontrada</h1>
-                <p>Desculpe, a página que você está procurando não existe.</p>
-                <p><a href="/">Voltar para a página inicial</a></p>
-            `;
-        }
-
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
         checkRoute();
-    </script>
+    });
+
+    function checkRoute() {
+        const path = window.location.pathname;
+        const content = document.getElementById('content');
+
+        if (path === '/') {
+            content.innerHTML = `<h1>Bem-vindo ao Meu Site!</h1><p>Conteúdo principal aqui.</p>`;
+        } else if (path === '/sobre') {
+            content.innerHTML = `<h1>Sobre</h1><p>Informações sobre o site.</p>`;
+        } else if (path === '/contato') {
+            content.innerHTML = `<h1>Contato</h1><p>Entre em contato conosco.</p>`;
+        } else {
+            show404();
+        }
+    }
+
+    function show404() {
+        document.getElementById('content').innerHTML = `
+            <h1>404 - Página Não Encontrada</h1>
+            <p>Desculpe, a página que você está procurando não existe.</p>
+            <p><a href="/">Voltar para a página inicial</a></p>
+        `;
+    }
+</script>
+
 
     
     <script>
